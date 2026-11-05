@@ -1,0 +1,185 @@
+{
+  "collected": "2026-10-11T16:56:55",
+  "tier": 1,
+  "candidates": 34,
+  "count": {
+    "readable": 24,
+    "masked": 2,
+    "empty": 1,
+    "denied": 0,
+    "absent": 7
+  },
+  "present": 27,
+  "files": [
+    {
+      "file": "/proc/sys/kernel/random/boot_id",
+      "status": "readable",
+      "sample": "709232d3-d4b7-46d5-859d-830df7f5f709"
+    },
+    {
+      "file": "/sys/fs/cgroup/net_prio/net_prio.ifpriomap",
+      "status": "absent",
+      "sample": ""
+    },
+    {
+      "file": "/proc/sched_debug",
+      "status": "absent",
+      "sample": ""
+    },
+    {
+      "file": "/proc/timer_list",
+      "status": "masked",
+      "sample": ""
+    },
+    {
+      "file": "/proc/locks",
+      "status": "empty",
+      "sample": ""
+    },
+    {
+      "file": "/proc/uptime",
+      "status": "readable",
+      "sample": "317.26 1123.16"
+    },
+    {
+      "file": "/proc/stat",
+      "status": "readable",
+      "sample": "cpu  7896 0 3389 112316 815 0 3162 0 0 0"
+    },
+    {
+      "file": "/proc/schedstat",
+      "status": "readable",
+      "sample": "version 17"
+    },
+    {
+      "file": "/proc/softirqs",
+      "status": "readable",
+      "sample": "CPU0       CPU1       CPU2       CPU3       "
+    },
+    {
+      "file": "/proc/interrupts",
+      "status": "masked",
+      "sample": ""
+    },
+    {
+      "file": "/sys/devices/system/node/node0/numastat",
+      "status": "readable",
+      "sample": "numa_hit 2793625"
+    },
+    {
+      "file": "/sys/class/powercap/*/energy_uj",
+      "status": "absent",
+      "sample": ""
+    },
+    {
+      "file": "/sys/devices/system/cpu/cpu*/cpuidle/state*/usage",
+      "status": "absent",
+      "sample": ""
+    },
+    {
+      "file": "/sys/devices/system/cpu/cpu*/cpuidle/state*/time",
+      "status": "absent",
+      "sample": ""
+    },
+    {
+      "file": "/proc/sys/fs/dentry-state",
+      "status": "readable",
+      "sample": "15843\t10900\t45\t0\t2468\t0"
+    },
+    {
+      "file": "/proc/sys/fs/inode-nr",
+      "status": "readable",
+      "sample": "13409\t0"
+    },
+    {
+      "file": "/proc/sys/fs/file-nr",
+      "status": "readable",
+      "sample": "668\t0\t1586771"
+    },
+    {
+      "file": "/proc/zoneinfo",
+      "status": "readable",
+      "sample": "Node 0, zone    DMA32"
+    },
+    {
+      "file": "/proc/meminfo",
+      "status": "readable",
+      "sample": "MemTotal:       15889000 kB"
+    },
+    {
+      "file": "/proc/fs/ext4/sda/mb_groups",
+      "status": "readable",
+      "sample": "#group: free  frags first [ 2^0   2^1   2^2   2^3   2^4   2^5   2^6   "
+    },
+    {
+      "file": "/sys/devices/system/node/node0/vmstat",
+      "status": "readable",
+      "sample": "nr_free_pages 3393032"
+    },
+    {
+      "file": "/sys/devices/system/node/node0/meminfo",
+      "status": "readable",
+      "sample": "Node 0 MemTotal:       15889000 kB"
+    },
+    {
+      "file": "/sys/devices/platform/coretemp.*/hwmon/hwmon*/temp*_input",
+      "status": "absent",
+      "sample": ""
+    },
+    {
+      "file": "/proc/loadavg",
+      "status": "readable",
+      "sample": "0.69 0.31 0.11 1/262 36"
+    },
+    {
+      "file": "/proc/sys/kernel/random/entropy_avail",
+      "status": "readable",
+      "sample": "256"
+    },
+    {
+      "file": "/proc/sys/kernel/sched_domain/cpu*/domain*/max_newidle_lb_cost",
+      "status": "absent",
+      "sample": ""
+    },
+    {
+      "file": "/proc/modules",
+      "status": "readable",
+      "sample": "nf_conntrack_netlink 45056 0 - Live 0x0000000000000000"
+    },
+    {
+      "file": "/proc/cpuinfo",
+      "status": "readable",
+      "sample": "processor\t: 0"
+    },
+    {
+      "file": "/proc/version",
+      "status": "readable",
+      "sample": "Linux version 6.18.33.1-microsoft-standard-WSL2 (root@5e53d226653e) (g"
+    },
+    {
+      "file": "/proc/diskstats",
+      "status": "readable",
+      "sample": "1       0 ram0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+    },
+    {
+      "file": "/proc/vmstat",
+      "status": "readable",
+      "sample": "nr_free_pages 3393032"
+    },
+    {
+      "file": "/proc/buddyinfo",
+      "status": "readable",
+      "sample": "Node 0, zone    DMA32      4      5      2      4      2      2      3"
+    },
+    {
+      "file": "/proc/swaps",
+      "status": "readable",
+      "sample": "Filename\t\t\t\tType\t\tSize\t\tUsed\t\tPriority"
+    },
+    {
+      "file": "/sys/devices/system/cpu/online",
+      "status": "readable",
+      "sample": "0-3"
+    }
+  ]
+}

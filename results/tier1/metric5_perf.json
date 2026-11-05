@@ -1,0 +1,49 @@
+{
+  "collected": "2026-10-11T17:16:14",
+  "tier": 1,
+  "runs_each": 3,
+  "cpu_events_per_s": 8363.65,
+  "cpu_avg_latency_ms": 0.48,
+  "disk_iops": 123318.33,
+  "disk_mb_per_s": 481.7,
+  "network_gbit_per_s": 42.09,
+  "cpu_runs": [
+    {
+      "events_per_s": 8421.37,
+      "avg_latency_ms": 0.47
+    },
+    {
+      "events_per_s": 8327.04,
+      "avg_latency_ms": 0.48
+    },
+    {
+      "events_per_s": 8342.55,
+      "avg_latency_ms": 0.48
+    }
+  ],
+  "disk_runs": [
+    {
+      "iops": 122836,
+      "mb_per_s": 479.8
+    },
+    {
+      "iops": 122848,
+      "mb_per_s": 479.9
+    },
+    {
+      "iops": 124271,
+      "mb_per_s": 485.4
+    }
+  ],
+  "network_runs": [
+    {
+      "gbit_per_s": 41.71
+    },
+    {
+      "gbit_per_s": 42.27
+    },
+    {
+      "gbit_per_s": 42.29
+    }
+  ]
+}
