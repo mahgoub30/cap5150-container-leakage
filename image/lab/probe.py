@@ -1,21 +1,15 @@
-"""Metric 2: which host-wide files can this container read?
-
-Runs inside the attacker container. The first 29 entries are the leakage
-channels listed in Table II of ContainerLeaks (Gao et al., DSN 2017). The last
-five are extra host-wide files we use or checked in the first baseline.
-A pattern with * is resolved to its first match inside the container.
-"""
+# M2 (attacker). Checks which host-wide files this container can read.
+# The first 29 are from ContainerLeaks (Gao et al., 2017) Table II.
 import glob
 import json
 
 
 def mount_points():
-    """Paths that have something mounted on top of them in this container."""
     with open("/proc/self/mountinfo") as f:
         return {line.split()[4] for line in f}
 
 CANDIDATES = [
-    # --- ContainerLeaks, Table II ---
+    # ContainerLeaks
     "/proc/sys/kernel/random/boot_id",
     "/sys/fs/cgroup/net_prio/net_prio.ifpriomap",
     "/proc/sched_debug",
@@ -45,7 +39,7 @@ CANDIDATES = [
     "/proc/modules",
     "/proc/cpuinfo",
     "/proc/version",
-    # --- extra host-wide files ---
+    # extra
     "/proc/diskstats",
     "/proc/vmstat",
     "/proc/buddyinfo",
@@ -65,8 +59,7 @@ def check(pattern):
     except OSError as e:
         return {"file": path, "status": "denied", "sample": type(e).__name__}
     if not data.strip():
-        # Docker hides some files by mounting an empty file over them ("masked").
-        # Others are simply empty from inside a container ("empty").
+        # masked = docker mounted an empty file over it
         status = "masked" if path in MOUNTS else "empty"
         return {"file": path, "status": status, "sample": ""}
     first = data.strip().splitlines()[0]
