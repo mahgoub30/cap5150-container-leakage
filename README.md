@@ -1,71 +1,62 @@
-# CAP5150 Topic 23: container leakage testbed
+# cap5150-container-leakage
 
-Code and results for the CAP 5150 (Fall 2026, UCF) final project
-"Measuring Information Exposure Between Tenants and the Performance Cost of
-Mitigation". Two containers on one Docker host, used to measure what one
-tenant can learn about another with no network path between them.
+CAP 5150 final project (UCF, Fall 2026) - Topic 23: measuring information
+exposure between tenants and the performance cost of mitigation.
 
-| Container | Role |
-|---|---|
-| `leak-victim` | runs a workload that we control (idle, CPU-heavy, disk-heavy) |
-| `leak-attacker` | only observes; reads host-wide files under `/proc` and `/sys` |
+Two containers run on the same Docker host with `--network none`:
 
-Both are started with `--network none`, so there is no network path between
-them. They are kept, not deleted, after a run. Quitting Docker Desktop only
-stops them; `python lab.py up --tier N` starts a fresh pair.
+- `leak-victim` runs a workload (idle, cpu, disk)
+- `leak-attacker` only reads host-wide files under /proc and /sys
 
-## Tiers
+The same tests run at three tiers:
 
-| Tier | Settings |
-|---|---|
-| 1 | Docker default, `--network none` |
-| 2 | Tier 1 + `--user 1000:1000`, `--read-only` (tmpfs `/tmp`), `--cap-drop ALL`, `no-new-privileges` |
-| 3 | Tier 2 + `--cpuset-cpus` 0-1 (victim) / 2-3 (attacker), `--memory 2g` each |
+- Tier 1: Docker defaults
+- Tier 2: non-root user, read-only root fs, `--cap-drop ALL`, no-new-privileges
+- Tier 3: tier 2 + own CPUs (`--cpuset-cpus`) and a 2g memory limit
 
-`misconfig` adds two badly configured attackers next to the Tier 1 victim
-(a privileged container and one with the Docker socket mounted). It only
-reads what they can see.
+`misconfig` also runs a privileged container and one with docker.sock
+mounted next to the victim, just to compare.
 
-## Host
+## Setup
 
-Docker Desktop (engine 29.5.3) runs its engine inside the WSL 2 virtual
-machine. A `.wslconfig` file in the Windows user folder with `[wsl2]` /
-`processors=4` limits that VM to 4 vCPUs to match the proposal. Delete it and
-run `wsl --shutdown` to give WSL all cores back.
-
-## Running it
+Tested on Docker Desktop 29.5.3 (WSL 2), with WSL limited to 4 vCPUs in
+`.wslconfig`:
 
 ```
-python lab.py build            # build the leaklab:1 image from image/
-python lab.py all --tier 1     # every measurement, about 30 minutes
+[wsl2]
+processors=4
+```
+
+## Usage
+
+```
+python lab.py build
+python lab.py all --tier 1
 python lab.py all --tier 2
 python lab.py all --tier 3
-python lab.py up --tier 1      # victim must be running for misconfig
+python lab.py up --tier 1
 python lab.py misconfig
 ```
 
-Single steps: `up`, `env`, `check`, `probe`, `guess`, `channel`, `fast`,
-`perf`, `audit`, `summary`. `fast` repeats the channel test at 100, 200 and
-500 bit/s. Keep the machine idle while `guess`, `channel` and `perf` run.
+`all` takes about 30 min per tier. Don't use the machine while it runs
+(guess, channel and perf are sensitive to other load).
 
-## What each step measures
+Steps can also be run one at a time: `up`, `env`, `check`, `probe`, `guess`,
+`channel`, `fast`, `perf`, `audit`, `summary`.
 
-| Step | Metric | How |
-|---|---|---|
-| `audit` | M1. CIS checks | Docker Bench for Security v1.6.0, cloned into `third_party/` on first run |
-| `probe` | M2. host-wide files readable | `image/lab/probe.py` inside the attacker; 29 files from ContainerLeaks Table II plus 5 more |
-| `guess` | M3. correct state guesses | victim switches state; `observe.py` in the attacker reads `/proc/stat` and `/proc/diskstats` and guesses |
-| `channel`, `fast` | M4. message with no network | `sender.py` in the victim keeps the CPU busy for a 1; `receiver.py` in the attacker reads `/proc/stat` |
-| `perf` | M5. performance | sysbench (CPU), fio (disk), iperf3 (network), 3 runs each |
+| step | metric |
+|---|---|
+| audit | M1 - CIS checks (Docker Bench for Security, cloned into third_party/) |
+| probe | M2 - host-wide files readable (29 from ContainerLeaks + 5 more) |
+| guess | M3 - guessing the victim's state from /proc/stat and /proc/diskstats |
+| channel, fast | M4 - sending bits with CPU load, no network |
+| perf | M5 - sysbench, fio, iperf3 |
 
 ## Results
 
-`results/tier<N>/summary.txt` has the headline numbers for each tier. The
-JSON files next to it hold every round, and `metric1_audit.txt` is the full
-audit report. `results/misconfig/misconfig.json` holds the misconfigured
-reference.
+`results/tier1`, `tier2`, `tier3` and `misconfig` - each tier has a
+`summary.txt` and the raw JSON.
 
-Tier 1 was first measured on 2026-10-11 (milestone). Tiers 2 and 3 were
-measured on 2026-11-05. `results/tier1/metric5_perf_rerun.json` and
-`metric4_channel_fast.json` are Tier 1 runs from the same day as Tiers 2 and
-3; the overhead numbers in the report use that same-day baseline.
+Tier 1 was run on Oct 11 for the milestone. Tiers 2 and 3 were run on Nov 5,
+along with a second tier 1 perf run (`metric5_perf_rerun.json`) used as the
+baseline for overhead in the report.

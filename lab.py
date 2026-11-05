@@ -7,8 +7,9 @@ Run from this folder:
     python lab.py build            build the container image
     python lab.py up --tier 1      create and start the two containers
     python lab.py all --tier 1     run every measurement and save the results
-Single steps: env, check, probe, guess, channel, perf, audit, summary.
-Results go to results/tier<N>/ as JSON plus a readable summary.txt.
+    python lab.py misconfig        privileged / docker.sock comparison
+Single steps: env, check, probe, guess, channel, fast, perf, audit, summary.
+Results go to results/tier<N>/ as JSON plus a summary.txt.
 """
 import argparse
 import datetime
@@ -24,19 +25,19 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 IMAGE = "leaklab:1"
 VICTIM, ATTACKER = "leak-victim", "leak-attacker"
-VOLUME = "leak-victim-data"  # Tier 1 used this name; later tiers get their own
-
-
-def volume(tier):
-    # a fresh volume per tier, so files written as root in Tier 1 do not block
-    # the non-root user of the hardened tiers
-    return VOLUME if tier == 1 else f"{VOLUME}-t{tier}"
+VOLUME = "leak-victim-data"
 BENCH_REPO = "https://github.com/docker/docker-bench-security.git"
 BENCH_DIR = HERE / "third_party" / "docker-bench-security"
 BENCH_IMAGE = "docker-bench-security:current"
 
-# Tier 1 is what has been run. Tiers 2 and 3 follow the proposal text and are
-# here so the same script can run them later.
+
+def volume(tier):
+    # new volume per tier: tier 1 writes its files as root and the
+    # non-root user in tiers 2/3 can't overwrite them
+    return VOLUME if tier == 1 else f"{VOLUME}-t{tier}"
+
+
+# tier settings (from the proposal)
 HARDENED = ["--user", "1000:1000", "--read-only", "--tmpfs", "/tmp",
             "--cap-drop", "ALL", "--security-opt", "no-new-privileges"]
 TIERS = {
@@ -386,15 +387,15 @@ def cmd_summary(a):
     say("\n".join(L))
 
 
-FAST_SLOTS = [0.01, 0.005, 0.002]  # 100, 200 and 500 bit/s, to find where it breaks
+FAST_SLOTS = [0.01, 0.005, 0.002]  # 100, 200, 500 bit/s
 
 
 def cmd_fast(a):
-    """Metric 4 again at higher speeds, saved next to the normal run."""
+    """metric 4 at higher speeds (saved as metric4_channel_fast.json)"""
     slots, tag = a.slots, a.tag
     a.slots, a.tag = FAST_SLOTS, "_fast"
     cmd_channel(a)
-    a.slots, a.tag = slots, tag  # so later steps in "all" save under their usual names
+    a.slots, a.tag = slots, tag  # reset so perf etc. keep normal file names
 
 
 # ---------------------------------------------------------------- misconfigured
@@ -414,8 +415,8 @@ print(json.dumps([r['Names'][0].lstrip('/') for r in rows]))
 
 
 def cmd_misconfig(a):
-    """Two badly configured attackers next to the Tier 1 victim: a privileged
-    container and one with the Docker socket mounted. Only reads, changes nothing."""
+    """privileged container and docker.sock container next to the tier 1
+    victim, for comparison. read only."""
     d = HERE / "results" / "misconfig"
     d.mkdir(parents=True, exist_ok=True)
     res = {"collected": datetime.datetime.now().isoformat(timespec="seconds")}
