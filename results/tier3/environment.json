@@ -1,0 +1,43 @@
+{
+  "collected": "2026-11-05T13:26:14",
+  "tier": 3,
+  "docker_server": "29.5.3",
+  "os": "Docker Desktop",
+  "kernel": "6.18.33.1-microsoft-standard-WSL2",
+  "cpus": 4,
+  "memory_gb": 15.2,
+  "storage_driver": "overlayfs",
+  "cgroup_version": "2",
+  "security_options": [
+    "name=seccomp,profile=builtin",
+    "name=cgroupns"
+  ],
+  "default_runtime": "runc",
+  "image": "sha256:beb025e8f842dc28cb734c8d0e21d3b9f8c058e33b3cc72e989a9549d7c11368",
+  "tier_flags": {
+    "name": "hardened + own CPU and memory",
+    "both": [
+      "--user",
+      "1000:1000",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges"
+    ],
+    "victim": [
+      "--cpuset-cpus",
+      "0-1",
+      "--memory",
+      "2g"
+    ],
+    "attacker": [
+      "--cpuset-cpus",
+      "2-3",
+      "--memory",
+      "2g"
+    ]
+  }
+}

@@ -1,0 +1,543 @@
+{
+  "collected": "2026-11-05T13:15:28",
+  "tier": 2,
+  "seconds_per_round": 4,
+  "cutoffs": {
+    "cpu": 25.71,
+    "disk": 196374.2
+  },
+  "correct": 60,
+  "rounds_total": 60,
+  "correct_pct": 100.0,
+  "actual_vs_guess": {
+    "idle": {
+      "idle": 20,
+      "cpu": 0,
+      "disk": 0
+    },
+    "cpu": {
+      "idle": 0,
+      "cpu": 20,
+      "disk": 0
+    },
+    "disk": {
+      "idle": 0,
+      "cpu": 0,
+      "disk": 20
+    }
+  },
+  "calibration": [
+    {
+      "actual": "cpu",
+      "cpu_busy_pct": 51.02,
+      "disk_kb_s": 68.0,
+      "load1": 0.38
+    },
+    {
+      "actual": "cpu",
+      "cpu_busy_pct": 50.77,
+      "disk_kb_s": 0.0,
+      "load1": 0.51
+    },
+    {
+      "actual": "disk",
+      "cpu_busy_pct": 11.51,
+      "disk_kb_s": 397669.8,
+      "load1": 0.51
+    },
+    {
+      "actual": "disk",
+      "cpu_busy_pct": 12.72,
+      "disk_kb_s": 390352.6,
+      "load1": 0.55
+    },
+    {
+      "actual": "disk",
+      "cpu_busy_pct": 10.1,
+      "disk_kb_s": 379269.4,
+      "load1": 0.62
+    },
+    {
+      "actual": "disk",
+      "cpu_busy_pct": 6.0,
+      "disk_kb_s": 401881.1,
+      "load1": 0.61
+    },
+    {
+      "actual": "idle",
+      "cpu_busy_pct": 0.25,
+      "disk_kb_s": 0.0,
+      "load1": 0.56
+    },
+    {
+      "actual": "idle",
+      "cpu_busy_pct": 0.94,
+      "disk_kb_s": 0.0,
+      "load1": 0.47
+    },
+    {
+      "actual": "cpu",
+      "cpu_busy_pct": 51.27,
+      "disk_kb_s": 0.0,
+      "load1": 0.59
+    },
+    {
+      "actual": "idle",
+      "cpu_busy_pct": 0.0,
+      "disk_kb_s": 0.0,
+      "load1": 0.65
+    },
+    {
+      "actual": "idle",
+      "cpu_busy_pct": 0.0,
+      "disk_kb_s": 0.0,
+      "load1": 0.55
+    },
+    {
+      "actual": "cpu",
+      "cpu_busy_pct": 50.59,
+      "disk_kb_s": 0.0,
+      "load1": 0.67
+    },
+    {
+      "actual": "cpu",
+      "cpu_busy_pct": 51.3,
+      "disk_kb_s": 0.0,
+      "load1": 0.72
+    },
+    {
+      "actual": "idle",
+      "cpu_busy_pct": 0.94,
+      "disk_kb_s": 0.0,
+      "load1": 0.66
+    },
+    {
+      "actual": "disk",
+      "cpu_busy_pct": 10.59,
+      "disk_kb_s": 394534.9,
+      "load1": 0.64
+    }
+  ],
+  "rounds": [
+    {
+      "actual": "idle",
+      "cpu_busy_pct": 0.25,
+      "disk_kb_s": 3.0,
+      "load1": 0.54,
+      "guess": "idle"
+    },
+    {
+      "actual": "cpu",
+      "cpu_busy_pct": 50.86,
+      "disk_kb_s": 0.0,
+      "load1": 0.66,
+      "guess": "cpu"
+    },
+    {
+      "actual": "cpu",
+      "cpu_busy_pct": 51.46,
+      "disk_kb_s": 0.0,
+      "load1": 0.72,
+      "guess": "cpu"
+    },
+    {
+      "actual": "idle",
+      "cpu_busy_pct": 1.0,
+      "disk_kb_s": 0.0,
+      "load1": 0.66,
+      "guess": "idle"
+    },
+    {
+      "actual": "disk",
+      "cpu_busy_pct": 6.54,
+      "disk_kb_s": 391166.8,
+      "load1": 0.64,
+      "guess": "disk"
+    },
+    {
+      "actual": "cpu",
+      "cpu_busy_pct": 50.53,
+      "disk_kb_s": 3.0,
+      "load1": 0.7,
+      "guess": "cpu"
+    },
+    {
+      "actual": "cpu",
+      "cpu_busy_pct": 50.53,
+      "disk_kb_s": 0.0,
+      "load1": 0.81,
+      "guess": "cpu"
+    },
+    {
+      "actual": "disk",
+      "cpu_busy_pct": 10.54,
+      "disk_kb_s": 401397.3,
+      "load1": 0.84,
+      "guess": "disk"
+    },
+    {
+      "actual": "cpu",
+      "cpu_busy_pct": 51.3,
+      "disk_kb_s": 3.0,
+      "load1": 0.93,
+      "guess": "cpu"
+    },
+    {
+      "actual": "idle",
+      "cpu_busy_pct": 0.06,
+      "disk_kb_s": 0.0,
+      "load1": 1.02,
+      "guess": "idle"
+    },
+    {
+      "actual": "idle",
+      "cpu_busy_pct": 0.06,
+      "disk_kb_s": 0.0,
+      "load1": 0.86,
+      "guess": "idle"
+    },
+    {
+      "actual": "idle",
+      "cpu_busy_pct": 0.31,
+      "disk_kb_s": 0.0,
+      "load1": 0.79,
+      "guess": "idle"
+    },
+    {
+      "actual": "idle",
+      "cpu_busy_pct": 1.0,
+      "disk_kb_s": 1.0,
+      "load1": 0.67,
+      "guess": "idle"
+    },
+    {
+      "actual": "disk",
+      "cpu_busy_pct": 5.46,
+      "disk_kb_s": 397815.2,
+      "load1": 0.7,
+      "guess": "disk"
+    },
+    {
+      "actual": "idle",
+      "cpu_busy_pct": 0.0,
+      "disk_kb_s": 3.0,
+      "load1": 0.66,
+      "guess": "idle"
+    },
+    {
+      "actual": "cpu",
+      "cpu_busy_pct": 50.8,
+      "disk_kb_s": 0.0,
+      "load1": 0.72,
+      "guess": "cpu"
+    },
+    {
+      "actual": "cpu",
+      "cpu_busy_pct": 50.77,
+      "disk_kb_s": 0.0,
+      "load1": 0.82,
+      "guess": "cpu"
+    },
+    {
+      "actual": "cpu",
+      "cpu_busy_pct": 51.48,
+      "disk_kb_s": 1.0,
+      "load1": 0.86,
+      "guess": "cpu"
+    },
+    {
+      "actual": "disk",
+      "cpu_busy_pct": 11.5,
+      "disk_kb_s": 378648.7,
+      "load1": 0.87,
+      "guess": "disk"
+    },
+    {
+      "actual": "disk",
+      "cpu_busy_pct": 11.07,
+      "disk_kb_s": 375526.6,
+      "load1": 0.89,
+      "guess": "disk"
+    },
+    {
+      "actual": "cpu",
+      "cpu_busy_pct": 50.5,
+      "disk_kb_s": 0.0,
+      "load1": 0.91,
+      "guess": "cpu"
+    },
+    {
+      "actual": "cpu",
+      "cpu_busy_pct": 50.71,
+      "disk_kb_s": 0.0,
+      "load1": 1.0,
+      "guess": "cpu"
+    },
+    {
+      "actual": "cpu",
+      "cpu_busy_pct": 51.66,
+      "disk_kb_s": 1.0,
+      "load1": 1.01,
+      "guess": "cpu"
+    },
+    {
+      "actual": "idle",
+      "cpu_busy_pct": 0.69,
+      "disk_kb_s": 0.0,
+      "load1": 0.93,
+      "guess": "idle"
+    },
+    {
+      "actual": "disk",
+      "cpu_busy_pct": 9.21,
+      "disk_kb_s": 387190.6,
+      "load1": 0.86,
+      "guess": "disk"
+    },
+    {
+      "actual": "idle",
+      "cpu_busy_pct": 0.12,
+      "disk_kb_s": 3.0,
+      "load1": 0.73,
+      "guess": "idle"
+    },
+    {
+      "actual": "idle",
+      "cpu_busy_pct": 0.44,
+      "disk_kb_s": 0.0,
+      "load1": 0.67,
+      "guess": "idle"
+    },
+    {
+      "actual": "cpu",
+      "cpu_busy_pct": 51.15,
+      "disk_kb_s": 0.0,
+      "load1": 0.73,
+      "guess": "cpu"
+    },
+    {
+      "actual": "cpu",
+      "cpu_busy_pct": 51.24,
+      "disk_kb_s": 0.0,
+      "load1": 0.91,
+      "guess": "cpu"
+    },
+    {
+      "actual": "idle",
+      "cpu_busy_pct": 0.12,
+      "disk_kb_s": 0.0,
+      "load1": 0.92,
+      "guess": "idle"
+    },
+    {
+      "actual": "idle",
+      "cpu_busy_pct": 0.12,
+      "disk_kb_s": 0.0,
+      "load1": 0.84,
+      "guess": "idle"
+    },
+    {
+      "actual": "idle",
+      "cpu_busy_pct": 0.13,
+      "disk_kb_s": 0.0,
+      "load1": 0.71,
+      "guess": "idle"
+    },
+    {
+      "actual": "disk",
+      "cpu_busy_pct": 10.38,
+      "disk_kb_s": 402268.5,
+      "load1": 0.68,
+      "guess": "disk"
+    },
+    {
+      "actual": "idle",
+      "cpu_busy_pct": 0.75,
+      "disk_kb_s": 3.0,
+      "load1": 0.63,
+      "guess": "idle"
+    },
+    {
+      "actual": "disk",
+      "cpu_busy_pct": 5.35,
+      "disk_kb_s": 384903.6,
+      "load1": 0.61,
+      "guess": "disk"
+    },
+    {
+      "actual": "disk",
+      "cpu_busy_pct": 9.71,
+      "disk_kb_s": 381596.3,
+      "load1": 0.56,
+      "guess": "disk"
+    },
+    {
+      "actual": "disk",
+      "cpu_busy_pct": 7.74,
+      "disk_kb_s": 407891.4,
+      "load1": 0.63,
+      "guess": "disk"
+    },
+    {
+      "actual": "disk",
+      "cpu_busy_pct": 9.43,
+      "disk_kb_s": 385477.2,
+      "load1": 0.61,
+      "guess": "disk"
+    },
+    {
+      "actual": "disk",
+      "cpu_busy_pct": 6.3,
+      "disk_kb_s": 383759.6,
+      "load1": 0.64,
+      "guess": "disk"
+    },
+    {
+      "actual": "cpu",
+      "cpu_busy_pct": 50.77,
+      "disk_kb_s": 3.0,
+      "load1": 0.78,
+      "guess": "cpu"
+    },
+    {
+      "actual": "disk",
+      "cpu_busy_pct": 4.73,
+      "disk_kb_s": 397672.1,
+      "load1": 0.8,
+      "guess": "disk"
+    },
+    {
+      "actual": "cpu",
+      "cpu_busy_pct": 50.83,
+      "disk_kb_s": 3.0,
+      "load1": 0.91,
+      "guess": "cpu"
+    },
+    {
+      "actual": "idle",
+      "cpu_busy_pct": 1.19,
+      "disk_kb_s": 0.0,
+      "load1": 0.77,
+      "guess": "idle"
+    },
+    {
+      "actual": "cpu",
+      "cpu_busy_pct": 51.03,
+      "disk_kb_s": 0.0,
+      "load1": 0.87,
+      "guess": "cpu"
+    },
+    {
+      "actual": "idle",
+      "cpu_busy_pct": 0.0,
+      "disk_kb_s": 0.0,
+      "load1": 0.73,
+      "guess": "idle"
+    },
+    {
+      "actual": "cpu",
+      "cpu_busy_pct": 50.83,
+      "disk_kb_s": 0.0,
+      "load1": 0.84,
+      "guess": "cpu"
+    },
+    {
+      "actual": "disk",
+      "cpu_busy_pct": 5.1,
+      "disk_kb_s": 408808.2,
+      "load1": 0.93,
+      "guess": "disk"
+    },
+    {
+      "actual": "disk",
+      "cpu_busy_pct": 6.47,
+      "disk_kb_s": 405626.8,
+      "load1": 0.87,
+      "guess": "disk"
+    },
+    {
+      "actual": "disk",
+      "cpu_busy_pct": 10.13,
+      "disk_kb_s": 400071.4,
+      "load1": 0.88,
+      "guess": "disk"
+    },
+    {
+      "actual": "cpu",
+      "cpu_busy_pct": 50.56,
+      "disk_kb_s": 3.0,
+      "load1": 0.98,
+      "guess": "cpu"
+    },
+    {
+      "actual": "idle",
+      "cpu_busy_pct": 0.06,
+      "disk_kb_s": 0.0,
+      "load1": 0.9,
+      "guess": "idle"
+    },
+    {
+      "actual": "disk",
+      "cpu_busy_pct": 12.32,
+      "disk_kb_s": 406839.1,
+      "load1": 0.84,
+      "guess": "disk"
+    },
+    {
+      "actual": "idle",
+      "cpu_busy_pct": 1.06,
+      "disk_kb_s": 3.0,
+      "load1": 0.71,
+      "guess": "idle"
+    },
+    {
+      "actual": "cpu",
+      "cpu_busy_pct": 51.15,
+      "disk_kb_s": 0.0,
+      "load1": 0.82,
+      "guess": "cpu"
+    },
+    {
+      "actual": "disk",
+      "cpu_busy_pct": 5.35,
+      "disk_kb_s": 413205.3,
+      "load1": 0.77,
+      "guess": "disk"
+    },
+    {
+      "actual": "idle",
+      "cpu_busy_pct": 0.19,
+      "disk_kb_s": 3.0,
+      "load1": 0.71,
+      "guess": "idle"
+    },
+    {
+      "actual": "disk",
+      "cpu_busy_pct": 6.07,
+      "disk_kb_s": 406781.7,
+      "load1": 0.68,
+      "guess": "disk"
+    },
+    {
+      "actual": "idle",
+      "cpu_busy_pct": 1.19,
+      "disk_kb_s": 3.0,
+      "load1": 0.58,
+      "guess": "idle"
+    },
+    {
+      "actual": "cpu",
+      "cpu_busy_pct": 50.68,
+      "disk_kb_s": 0.0,
+      "load1": 0.69,
+      "guess": "cpu"
+    },
+    {
+      "actual": "disk",
+      "cpu_busy_pct": 10.82,
+      "disk_kb_s": 404552.8,
+      "load1": 0.74,
+      "guess": "disk"
+    }
+  ]
+}

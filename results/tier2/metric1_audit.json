@@ -1,0 +1,35 @@
+{
+  "collected": "2026-11-05T13:25:52",
+  "tier": 2,
+  "script_version": "1.6.0",
+  "script_commit": "154869da6418089decf7e1ab0cfca0e1cdfc5c49",
+  "checks_reported": 117,
+  "score_reported": 14,
+  "numbered_checks": {
+    "PASS": 41,
+    "WARN": 19,
+    "INFO": 47,
+    "NOTE": 11
+  },
+  "warnings": [
+    "1.1.1 Ensure a separate partition for containers has been created (Automated)",
+    "1.1.3 Ensure auditing is configured for the Docker daemon (Automated)",
+    "1.1.4 Ensure auditing is configured for Docker files and directories -/run/containerd (Automated)",
+    "1.1.5 Ensure auditing is configured for Docker files and directories - /var/lib/docker (Automated)",
+    "2.2 Ensure network traffic is restricted between containers on the default bridge (Scored)",
+    "2.9 Enable user namespace support (Scored)",
+    "2.12 Ensure that authorization for Docker client commands is enabled (Scored)",
+    "2.13 Ensure centralized and remote logging is configured (Scored)",
+    "2.14 Ensure containers are restricted from acquiring new privileges (Scored)",
+    "2.15 Ensure live restore is enabled (Scored)",
+    "2.16 Ensure Userland Proxy is Disabled (Scored)",
+    "3.15 Ensure that the Docker socket file ownership is set to root:docker (Automated)",
+    "4.5 Ensure Content trust for Docker is Enabled (Automated)",
+    "4.6 Ensure that HEALTHCHECK instructions have been added to container images (Automated)",
+    "5.2 Ensure that, if applicable, an AppArmor Profile is enabled (Automated)",
+    "5.11 Ensure that the memory usage for containers is limited (Automated)",
+    "5.12 Ensure that CPU priority is set appropriately on containers (Automated)",
+    "5.27 Ensure that container health is checked at runtime (Automated)",
+    "5.29 Ensure that the PIDs cgroup limit is used (Automated)"
+  ]
+}

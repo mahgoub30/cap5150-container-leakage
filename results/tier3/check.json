@@ -1,0 +1,50 @@
+{
+  "collected": "2026-11-05T13:26:15",
+  "tier": 3,
+  "leak-victim": {
+    "state": "running",
+    "network_mode": "none",
+    "user": "1000:1000",
+    "read_only": true,
+    "privileged": false,
+    "cap_drop": [
+      "ALL"
+    ],
+    "security_opt": [
+      "no-new-privileges"
+    ],
+    "cpuset": "0-1",
+    "memory_limit": 2147483648,
+    "addresses": [
+      "127.0.0.1/8",
+      "::1/128"
+    ],
+    "boot_id": "feaad04d-aa03-4054-a15d-06cd43afca79",
+    "cpus_seen": 4,
+    "memtotal_seen": "MemTotal: 15889004 kB"
+  },
+  "leak-attacker": {
+    "state": "running",
+    "network_mode": "none",
+    "user": "1000:1000",
+    "read_only": true,
+    "privileged": false,
+    "cap_drop": [
+      "ALL"
+    ],
+    "security_opt": [
+      "no-new-privileges"
+    ],
+    "cpuset": "2-3",
+    "memory_limit": 2147483648,
+    "addresses": [
+      "127.0.0.1/8",
+      "::1/128"
+    ],
+    "boot_id": "feaad04d-aa03-4054-a15d-06cd43afca79",
+    "cpus_seen": 4,
+    "memtotal_seen": "MemTotal: 15889004 kB"
+  },
+  "same_boot_id": true,
+  "no_network_path": true
+}
